@@ -1,252 +1,601 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Juan Manuel Ronda Orcero | Libros, vídeos y contacto</title>
+  <meta name="description" content="Web oficial de Juan Manuel Ronda Orcero. Libros, vídeos, biografía, contacto directo y enlaces a Amazon y Facebook.">
+  <meta name="theme-color" content="#1e293b">
+  <meta property="og:title" content="Juan Manuel Ronda Orcero | Libros, vídeos y contacto">
+  <meta property="og:description" content="Autor de El niño sin su patio y El cristal roto de Elena. Web oficial con vídeos, biografía y contacto.">
+  <meta property="og:type" content="website">
+  <style>
+    :root{
+      --bg:#f6f1e8;
+      --paper:#fffdfa;
+      --ink:#182232;
+      --muted:#5e6777;
+      --line:#ddd3c1;
+      --accent:#7a4c22;
+      --accent-2:#b9833b;
+      --deep:#1b2433;
+      --deep-2:#2a3750;
+      --soft:#efe5d6;
+      --card:#ffffffcc;
+      --success:#2f6b52;
+      --shadow:0 18px 48px rgba(17,24,39,.12);
+      --radius:24px;
+      --max:1200px;
+    }
 
-<title>El cristal roto de Elena — Juan Manuel Ronda Órcero</title>
-<meta name="description" content="El cristal roto de Elena, novela de Juan Manuel Ronda Órcero. Intimidad, identidad y aquello que no deja rastro.">
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 500px at 0% 0%, #fff7e8 0%, transparent 45%),
+        radial-gradient(900px 400px at 100% 0%, #e8eef9 0%, transparent 40%),
+        var(--bg);
+      line-height:1.65;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+    .section{padding:32px 0}
+    .kicker{
+      display:inline-block;
+      margin:0 0 12px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      font-size:12px;
+      font-weight:800;
+      color:var(--accent);
+    }
+    .title{
+      margin:0 0 12px;
+      font-size:clamp(30px,4vw,46px);
+      line-height:1.08;
+      letter-spacing:-.03em;
+    }
+    .intro{margin:0;color:var(--muted);font-size:18px;max-width:72ch}
 
-<style>
-:root { --max: 980px; }
+    .panel{
+      background:var(--card);
+      backdrop-filter: blur(10px);
+      border:1px solid rgba(255,255,255,.55);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
 
-body {
-  margin:0;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  background:#f8fafc;
-  color:#0f172a;
-  line-height:1.6;
-}
+    header{
+      position:relative;
+      overflow:hidden;
+      color:#fff;
+      background:
+        radial-gradient(900px 380px at 10% 0%, rgba(255,255,255,.12), transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, rgba(185,131,59,.25), transparent 42%),
+        linear-gradient(135deg, var(--deep) 0%, var(--deep-2) 55%, #111827 100%);
+      padding:24px 0 72px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .topbar{
+      display:flex;align-items:center;justify-content:space-between;gap:20px;
+      padding:12px 0 24px;
+    }
+    .brand{
+      font-weight:900;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:#f6e8cf;
+    }
+    .nav{display:flex;flex-wrap:wrap;gap:14px}
+    .nav a{font-size:14px;color:rgba(255,255,255,.9)}
+    .hero{
+      display:grid;grid-template-columns:1.08fr .92fr;gap:34px;align-items:center;
+      padding-top:10px;
+    }
+    .hero h1{
+      margin:0 0 14px;font-size:clamp(42px,6vw,72px);line-height:.96;letter-spacing:-.04em;
+    }
+    .hero-sub{
+      margin:0 0 16px;
+      font-size:clamp(18px,2.2vw,24px);
+      color:rgba(255,255,255,.92);
+      max-width:30ch;
+    }
+    .hero-text{margin:0;color:rgba(255,255,255,.8);font-size:17px;max-width:64ch}
+    .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 18px;border-radius:999px;
+      font-weight:800;transition:.22s ease;border:1px solid transparent;
+    }
+    .btn:hover{transform:translateY(-2px)}
+    .btn.primary{background:#fff;color:#162031}
+    .btn.secondary{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.2);color:#fff}
+    .hero-side{
+      display:grid;grid-template-columns:1fr 1fr;gap:18px;
+    }
+    .hero-card{
+      background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:24px;padding:14px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card img{
+      width:100%;aspect-ratio:3/4.35;object-fit:cover;border-radius:16px;border:1px solid rgba(255,255,255,.16)
+    }
+    .hero-card h3{margin:12px 2px 6px;font-size:18px;line-height:1.15}
+    .hero-card p{margin:0 2px;color:rgba(255,255,255,.74);font-size:14px}
 
-header {
-  padding:64px 20px;
-  background: radial-gradient(1200px 500px at 10% 0%, #1e293b 0%, #0f172a 55%, #020617 100%);
-  color:#fff;
-}
+    .quick-strip{
+      margin-top:-34px;position:relative;z-index:4;
+    }
+    .quick-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:16px;padding:18px;
+    }
+    .quick-item{padding:14px 16px;border-radius:18px;background:#fff;border:1px solid var(--line)}
+    .quick-item strong{display:block;font-size:15px;margin-bottom:4px}
+    .quick-item span{font-size:14px;color:var(--muted)}
 
-.wrap { max-width: var(--max); margin: 0 auto; }
+    .books-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px}
+    .book-card{padding:22px;display:grid;grid-template-columns:220px 1fr;gap:22px}
+    .book-cover{width:100%;aspect-ratio:3/4.35;object-fit:cover;border-radius:18px;border:1px solid #e5ddcf;box-shadow:0 10px 26px rgba(0,0,0,.08)}
+    .book-meta h3{margin:0 0 10px;font-size:30px;line-height:1.06;letter-spacing:-.03em}
+    .book-meta .subtitle{margin:0 0 10px;color:var(--muted);font-size:15px}
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+    .tag{padding:7px 11px;border-radius:999px;background:#f2eadf;color:#67472b;font-size:13px;font-weight:800}
+    .book-meta p{margin:0 0 14px;color:var(--muted);font-size:16px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:10px}
+    .btn-lite,.btn-buy{
+      display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 15px;border-radius:999px;font-weight:800
+    }
+    .btn-buy{background:var(--accent);color:#fff}
+    .btn-lite{background:#fff;border:1px solid #d9cdbb;color:var(--ink)}
+    .book-extra{
+      margin-top:14px;border-top:1px solid #ece2d2;padding-top:14px;color:#415066;font-size:15px
+    }
 
-h1 { margin:12px 0 10px; font-size:44px; line-height:1.1; }
-.sub { max-width: 78ch; opacity:.92; }
+    .tabs{
+      margin-top:26px;padding:24px;
+    }
+    .tab-buttons{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px}
+    .tab-btn{
+      border:1px solid #d8ccbb;background:#fff;padding:11px 14px;border-radius:999px;font-weight:800;color:#203049;cursor:pointer
+    }
+    .tab-btn.active{background:var(--deep);border-color:var(--deep);color:#fff}
+    .tab-pane{display:none}
+    .tab-pane.active{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:start}
+    .tab-pane .blurb{padding:22px;border-radius:20px;background:#fff;border:1px solid var(--line)}
+    .tab-pane .blurb h3{margin:0 0 12px;font-size:28px}
+    .tab-pane .blurb p{margin:0 0 14px;color:var(--muted)}
+    .quote{padding:20px;border-radius:20px;background:linear-gradient(180deg,#fff8ef 0%,#f6ecde 100%);border:1px solid #e6d8c1}
+    .quote strong{display:block;margin-bottom:8px;font-size:15px;color:#5e4427}
+    .quote p{margin:0;color:#4b5565;font-size:16px}
 
-.cta {
-  margin-top:22px;
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-}
+    .media-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px}
+    .media-card{padding:20px}
+    .media-card h3{margin:0 0 12px;font-size:24px}
+    .media-card p{margin:0 0 14px;color:var(--muted)}
+    .video-box{position:relative;overflow:hidden;border-radius:18px;aspect-ratio:16/9;background:#000;border:1px solid #d9cfbf;cursor:pointer}
+    .video-box img{width:100%;height:100%;object-fit:cover}
+    .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:72px;color:#fff;text-shadow:0 10px 30px rgba(0,0,0,.4)}
+    .video-box iframe{width:100%;height:100%;border:0}
 
-.btn {
-  display:inline-block;
-  padding:12px 16px;
-  border-radius:14px;
-  text-decoration:none;
-  font-weight:700;
-}
+    .author-grid{display:grid;grid-template-columns:360px 1fr;gap:28px;align-items:start;margin-top:24px}
+    .author-photo-wrap{padding:14px}
+    .author-photo{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:22px;border:1px solid var(--line)}
+    .author-box{padding:28px}
+    .author-box p{margin:0 0 16px;color:var(--muted);font-size:17px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .stat{padding:16px;border-radius:18px;background:#fff;border:1px solid #e5dccd;text-align:center}
+    .stat strong{display:block;font-size:24px;line-height:1;margin-bottom:6px}
+    .stat span{font-size:13px;color:var(--muted)}
 
-.btn.primary { background:#fff; color:#0f172a; }
-.btn.ghost { border:1px solid rgba(255,255,255,.35); color:#fff; }
+    .journey-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:24px}
+    .journey-card{padding:22px}
+    .journey-card h3{margin:0 0 10px;font-size:22px}
+    .journey-card p{margin:0;color:var(--muted)}
 
-main { padding:34px 20px; }
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:24px}
+    .faq-card{padding:22px}
+    details{border-top:1px solid #eadfce;padding:14px 0}
+    details:first-child{border-top:none;padding-top:0}
+    summary{cursor:pointer;font-weight:800;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    details p{margin:10px 0 0;color:var(--muted)}
 
-.grid {
-  display:grid;
-  grid-template-columns: 1.25fr .75fr;
-  gap:18px;
-  align-items:start;
-}
+    .connect-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;margin-top:24px}
+    .connect-card{padding:24px}
+    .connect-card h3{margin:0 0 12px;font-size:24px}
+    .connect-card p{margin:0 0 14px;color:var(--muted)}
+    .link-list{display:grid;gap:12px}
+    .link-row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 16px;border-radius:18px;background:#fff;border:1px solid #e7ddcd}
+    .link-row span{font-weight:700}
+    .link-row a{font-weight:800;color:var(--accent)}
+    .notice{padding:16px 18px;border-radius:18px;background:#f7f8fc;border:1px solid #dce4f1;color:#415066}
 
-@media (max-width: 900px){
-  .grid { grid-template-columns: 1fr; }
-  h1 { font-size:36px; }
-}
+    footer{padding:18px 0 42px;color:#667085}
+    .footer-box{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;padding-top:18px;border-top:1px solid #d9cfbf;font-size:14px}
 
-.card {
-  border:1px solid #e5e7eb;
-  border-radius:18px;
-  padding:18px;
-  background:#fff;
-  box-shadow: 0 10px 26px rgba(2,6,23,.08);
-}
-
-h2 { margin:0 0 10px; font-size:20px; }
-
-.small { font-size:14px; color:#334155; }
-.muted { color:#475569; }
-
-/* Vídeo sin iframe inicial (evita error 153) */
-.video-box {
-  position:relative;
-  border-radius:16px;
-  overflow:hidden;
-  border:1px solid #e5e7eb;
-  background:#000;
-  aspect-ratio:16/9;
-  cursor:pointer;
-}
-
-.video-box img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-  opacity:.85;
-}
-
-.video-box .play {
-  position:absolute;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:64px;
-  color:#fff;
-  background:linear-gradient(transparent, rgba(0,0,0,.35));
-}
-
-.video-box:hover img { opacity:1; }
-
-.video-box iframe {
-  width:100%;
-  height:100%;
-  border:0;
-}
-
-.cover {
-  width:100%;
-  border-radius:16px;
-  border:1px solid #e5e7eb;
-  display:block;
-}
-
-a { color:inherit; }
-a.link { color:#0b5cff; }
-
-footer {
-  padding:26px 20px;
-  color:#475569;
-  border-top:1px solid #e5e7eb;
-  background:#fff;
-}
-</style>
+    @media (max-width:1100px){
+      .hero,.tab-pane.active,.author-grid,.connect-grid{grid-template-columns:1fr}
+      .books-grid,.media-grid,.faq-grid,.journey-grid{grid-template-columns:1fr}
+      .quick-grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:760px){
+      .topbar{flex-direction:column;align-items:flex-start}
+      .hero-side{grid-template-columns:1fr 1fr}
+      .quick-grid{grid-template-columns:1fr}
+      .book-card{grid-template-columns:1fr}
+      .stats{grid-template-columns:1fr}
+      .btn,.btn-buy,.btn-lite{width:100%}
+      .cta,.actions,.tab-buttons{flex-direction:column}
+      .link-row{flex-direction:column;align-items:flex-start}
+    }
+    @media (max-width:560px){
+      .wrap{padding:0 18px}
+      .hero-side{grid-template-columns:1fr}
+      .author-box,.media-card,.journey-card,.faq-card,.connect-card,.tabs{padding:20px}
+    }
+  </style>
 </head>
-
 <body>
-
-<header>
-  <div class="wrap">
-    <h1>El cristal roto de Elena</h1>
-    <p class="sub">
-      <strong>Juan Manuel Ronda Órcero</strong> · Autor y psicólogo.<br>
-      Una novela sobre lo que no deja rastro, pero determina una vida.
-    </p>
-
-    <div class="cta">
-      <a class="btn primary" href="#video">Vídeo</a>
-      <a class="btn ghost" href="#sinopsis">Sinopsis</a>
-      <a class="btn ghost" href="#prologo">Prólogo</a>
-      <a class="btn ghost" href="#autor">Autor</a>
-    </div>
-  </div>
-</header>
-
-<main>
-  <div class="wrap grid">
-
-    <!-- Columna principal -->
-    <section class="card" id="video">
-      <h2>Vídeo promocional</h2>
-
-      <div class="video-box" onclick="loadVideo(this)">
-        <img src="https://img.youtube.com/vi/ivtkXDO9zBY/hqdefault.jpg" alt="Vídeo promocional El cristal roto de Elena">
-        <div class="play">▶</div>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">Web oficial</div>
+        <nav class="nav" aria-label="Navegación principal">
+          <a href="#libros">Libros</a>
+          <a href="#descubrir">Descubrir</a>
+          <a href="#videos">Vídeos</a>
+          <a href="#autor">Autor</a>
+          <a href="#faq">Preguntas</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
       </div>
 
-      <p class="small" style="margin-top:10px;">
-        <a class="link" href="https://youtu.be/ivtkXDO9zBY" target="_blank" rel="noopener">
-          Ver el vídeo en YouTube
-        </a>
-      </p>
+      <div class="hero">
+        <div>
+          <span class="kicker" style="color:#f2d9a8">Narrativa · Memoria · Ficción</span>
+          <h1>Juan Manuel Ronda Orcero</h1>
+          <p class="hero-sub">Libros, vídeos, contacto directo y una presencia de autor pensada para lectores reales.</p>
+          <p class="hero-text">Aquí encontrarás sus libros publicados, materiales audiovisuales, una biografía clara, acceso a Amazon, Facebook profesional y vías de contacto para seguimiento, presentaciones o venta directa.</p>
+          <div class="cta">
+            <a class="btn primary" href="#libros">Ver libros</a>
+            <a class="btn secondary" href="https://www.amazon.com/author/juanma.ronda" target="_blank" rel="noopener">Perfil en Amazon</a>
+            <a class="btn secondary" href="#contacto">Contacto directo</a>
+          </div>
+        </div>
 
-      <hr style="border:none;border-top:1px solid #e5e7eb;margin:18px 0;">
+        <div class="hero-side">
+          <article class="hero-card">
+            <img src="portada-nino.jpg" alt="Portada de El niño sin su patio">
+            <h3>El niño sin su patio</h3>
+            <p>Infancia, memoria y huella emocional de los lugares que nos construyen.</p>
+          </article>
+          <article class="hero-card">
+            <img src="portada.jpg" alt="Portada de El cristal roto de Elena">
+            <h3>El cristal roto de Elena</h3>
+            <p>Percepción, deseo, realidad y fisuras de la identidad contemporánea.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </header>
 
-      <h2 id="sinopsis">Sinopsis</h2>
-      <p class="small">
-        No todo lo que nos acompaña deja rastro. Hay presencias que existen solo mientras las miramos,
-        mientras compartimos con ellas un tiempo que no se puede archivar.
-      </p>
-      <p class="small">
-        El cristal roto de Elena se mueve en ese territorio incierto: el lugar donde la intimidad
-        y la identidad dejan de coincidir, y donde lo vivido empieza a desafiar a lo que puede demostrarse.
-      </p>
+  <div class="quick-strip section">
+    <div class="wrap">
+      <div class="panel quick-grid">
+        <div class="quick-item"><strong>Compra online</strong><span>Acceso directo a los libros en Amazon.</span></div>
+        <div class="quick-item"><strong>Venta directa</strong><span>Consulta y contacto por email.</span></div>
+        <div class="quick-item"><strong>Facebook profesional</strong><span>Novedades, publicaciones y presencia pública.</span></div>
+        <div class="quick-item"><strong>Web preparada para crecer</strong><span>Nuevos libros, reseñas, actos y futuros contenidos.</span></div>
+      </div>
+    </div>
+  </div>
 
-      <hr style="border:none;border-top:1px solid #e5e7eb;margin:18px 0;">
+  <main>
+    <section class="section" id="libros">
+      <div class="wrap">
+        <span class="kicker">Publicaciones</span>
+        <h2 class="title">Libros publicados</h2>
+        <p class="intro">Una entrada clara a la obra publicada, con sinopsis útiles, identidad visual cuidada y llamadas directas a compra, vídeo o exploración adicional.</p>
 
-      <h2 id="prologo">Prólogo</h2>
-      <p class="small">
-        Hay momentos en los que una vida no cambia por un hecho, sino por una grieta.
-        No algo que se rompa de golpe, sino una fisura lenta que atraviesa lo que dábamos por estable.
-      </p>
-      <p class="small">
-        Con el tiempo aprendemos a fiarnos de lo que puede nombrarse, medirse, archivarse.
-        Sin embargo, una parte esencial de la experiencia humana vive fuera de esos márgenes.
-      </p>
-      <p class="small">
-        Esta historia se mueve en ese territorio intermedio. No en el de los grandes acontecimientos,
-        sino en el de las pequeñas fracturas que alteran una vida sin que nadie más lo advierta.
-      </p>
-      <p class="small muted">
-        <em>A veces no es el mundo lo que se quiebra. A veces es la forma en que lo miramos.</em>
-      </p>
+        <div class="books-grid">
+          <article class="panel book-card">
+            <img class="book-cover" src="portada-nino.jpg" alt="Portada de El niño sin su patio">
+            <div class="book-meta">
+              <h3>El niño sin su patio</h3>
+              <p class="subtitle">Relato autobiográfico, memoria emocional y reconstrucción íntima de la infancia.</p>
+              <div class="tags">
+                <span class="tag">Memoria</span>
+                <span class="tag">Infancia</span>
+                <span class="tag">Autobiográfico</span>
+              </div>
+              <p>Una obra de raíz personal que recorre los espacios, las escenas y las emociones que configuraron una sensibilidad propia. No se limita al recuerdo: transforma la memoria en materia literaria y convierte los lugares de origen en una forma de identidad.</p>
+              <div class="actions">
+                <a class="btn-buy" href="https://www.amazon.es/dp/B0GGZWZLQJ" target="_blank" rel="noopener">Comprar en Amazon</a>
+                <a class="btn-lite" href="#videos">Ver vídeo</a>
+              </div>
+              <div class="book-extra">Ideal para lectores que buscan evocación, verdad emocional y una escritura atenta a los pequeños escenarios que modelan una vida.</div>
+            </div>
+          </article>
+
+          <article class="panel book-card">
+            <img class="book-cover" src="portada.jpg" alt="Portada de El cristal roto de Elena">
+            <div class="book-meta">
+              <h3>El cristal roto de Elena</h3>
+              <p class="subtitle">Novela de ficción y reflexión sobre la percepción, el deseo y las grietas de lo real.</p>
+              <div class="tags">
+                <span class="tag">Ficción</span>
+                <span class="tag">Psicología</span>
+                <span class="tag">Percepción</span>
+              </div>
+              <p>Una narración que se adentra en los límites entre realidad, conciencia y construcción emocional. La novela abre preguntas sobre lo que creemos ver, lo que deseamos sostener y la fragilidad de los vínculos cuando el mundo interior empieza a resquebrajarse.</p>
+              <div class="actions">
+                <a class="btn-buy" href="https://www.amazon.es/dp/B0GGZ6XSTP" target="_blank" rel="noopener">Comprar en Amazon</a>
+                <a class="btn-lite" href="#videos">Ver vídeo</a>
+              </div>
+              <div class="book-extra">Pensado para lectores que disfrutan de novelas con capas, tensión psicológica y un trasfondo reflexivo sobre identidad y percepción.</div>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
-    <!-- Columna lateral -->
-    <aside class="card">
-      <h2>El libro</h2>
-      <img src="portada.jpg" alt="Portada de El cristal roto de Elena" class="cover">
+    <section class="section" id="descubrir">
+      <div class="wrap">
+        <div class="panel tabs">
+          <span class="kicker">Explorar mejor</span>
+          <h2 class="title" style="font-size:clamp(28px,3.4vw,40px)">Dos libros, dos puertas de entrada</h2>
+          <p class="intro" style="margin-bottom:22px">Una sección dinámica para que el visitante no solo vea portadas, sino que entienda rápidamente el tono, el interés y el perfil de lectura de cada obra.</p>
 
-      <p class="small" style="margin-top:10px;">
-        <a class="link" href="https://www.amazon.es/dp/B0GJSDJS43" target="_blank" rel="noopener">
-          <strong>Comprar en Amazon</strong>
-        </a>
-      </p>
+          <div class="tab-buttons" role="tablist" aria-label="Exploración de libros">
+            <button class="tab-btn active" data-tab="tab1" role="tab" aria-selected="true">Descubrir El niño sin su patio</button>
+            <button class="tab-btn" data-tab="tab2" role="tab" aria-selected="false">Descubrir El cristal roto de Elena</button>
+          </div>
 
-      <hr style="border:none;border-top:1px solid #e5e7eb;margin:18px 0;">
+          <div class="tab-pane active" id="tab1" role="tabpanel">
+            <div class="blurb">
+              <h3>Por qué puede interesar este libro</h3>
+              <p>Porque convierte lo autobiográfico en literatura sin perder cercanía. La fuerza del libro no está solo en lo que cuenta, sino en cómo convierte una experiencia concreta en una resonancia universal: la infancia, el barrio, los objetos, los afectos y las ausencias.</p>
+              <p>Funciona especialmente bien para quien valora la memoria como materia emocional y narrativa, y para quien reconoce que los espacios vividos forman parte profunda del carácter.</p>
+              <div class="actions">
+                <a class="btn-buy" href="https://www.amazon.es/dp/B0GGZWZLQJ" target="_blank" rel="noopener">Ir al libro</a>
+                <a class="btn-lite" href="https://www.amazon.com/author/juanma.ronda" target="_blank" rel="noopener">Ver autor en Amazon</a>
+              </div>
+            </div>
+            <div class="quote">
+              <strong>Claves de lectura</strong>
+              <p>Memoria, identidad, lugares fundacionales, emoción contenida, evocación de un mundo íntimo y recuperación literaria de una experiencia personal con vocación de permanencia.</p>
+            </div>
+          </div>
 
-      <h2 id="autor">Sobre el autor</h2>
-      <p class="small">
-        Juan Manuel Ronda Órcero es autor de narrativa. Tras una primera novela de carácter
-        autobiográfico centrada en la memoria y la infancia, en <em>El cristal roto de Elena</em>
-        aborda una ficción más contenida y reflexiva, donde la identidad, el deseo y los límites
-        de lo verificable se convierten en materia literaria.
-      </p>
+          <div class="tab-pane" id="tab2" role="tabpanel">
+            <div class="blurb">
+              <h3>Por qué puede interesar esta novela</h3>
+              <p>Porque no se conforma con narrar: explora. La novela pone en primer plano la experiencia interior, la inestabilidad de la percepción y la tensión entre deseo, realidad y construcción mental. Propone una lectura más interpretativa, con capas y resonancias.</p>
+              <p>Es una obra adecuada para lectores que prefieren una ficción con espesor psicológico y con una dimensión reflexiva que se prolonga más allá de la última página.</p>
+              <div class="actions">
+                <a class="btn-buy" href="https://www.amazon.es/dp/B0GGZ6XSTP" target="_blank" rel="noopener">Ir al libro</a>
+                <a class="btn-lite" href="https://www.amazon.com/author/juanma.ronda" target="_blank" rel="noopener">Ver autor en Amazon</a>
+              </div>
+            </div>
+            <div class="quote">
+              <strong>Claves de lectura</strong>
+              <p>Realidad y percepción, fractura emocional, identidad, tensión psicológica, mirada introspectiva y una narrativa abierta a múltiples lecturas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-      <hr style="border:none;border-top:1px solid #e5e7eb;margin:18px 0;">
+    <section class="section" id="videos">
+      <div class="wrap">
+        <span class="kicker">Vídeos</span>
+        <h2 class="title">Material audiovisual</h2>
+        <p class="intro">Booktrailers y piezas de apoyo para que el visitante acceda a una impresión más inmediata y emocional de cada obra.</p>
 
-      <h2>Contacto</h2>
-      <p class="small">
-        <a class="link" href="mailto:jvanma@hotmail.com">jvanma@hotmail.com</a>
-      </p>
-    </aside>
+        <div class="media-grid">
+          <article class="panel media-card">
+            <h3>Vídeo de El niño sin su patio</h3>
+            <p>Presentación audiovisual del libro.</p>
+            <div class="video-box" onclick="loadVideo(this)" data-video="6Dc84kpBuhs" aria-label="Reproducir vídeo de El niño sin su patio">
+              <img src="https://img.youtube.com/vi/6Dc84kpBuhs/hqdefault.jpg" alt="Miniatura del vídeo de El niño sin su patio">
+              <div class="play">▶</div>
+            </div>
+          </article>
 
-  </div>
-</main>
+          <article class="panel media-card">
+            <h3>Vídeo de El cristal roto de Elena</h3>
+            <p>Presentación audiovisual del libro.</p>
+            <div class="video-box" onclick="loadVideo(this)" data-video="ivtkXDO9zBY" aria-label="Reproducir vídeo de El cristal roto de Elena">
+              <img src="https://img.youtube.com/vi/ivtkXDO9zBY/hqdefault.jpg" alt="Miniatura del vídeo de El cristal roto de Elena">
+              <div class="play">▶</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
 
-<footer>
-  <div class="wrap small">
-    © <span id="y"></span> Juan Manuel Ronda Órcero
-  </div>
-</footer>
+    <section class="section" id="autor">
+      <div class="wrap">
+        <span class="kicker">Autor</span>
+        <h2 class="title">Sobre Juan Manuel Ronda Orcero</h2>
+        <p class="intro">Una presentación clara y profesional, pensada para que el visitante entienda de inmediato quién escribe, desde dónde lo hace y qué continuidad tiene su obra.</p>
 
-<script>
-document.getElementById('y').textContent = new Date().getFullYear();
+        <div class="author-grid">
+          <div class="panel author-photo-wrap">
+            <img class="author-photo" src="foto juanma.jpg" alt="Juan Manuel Ronda Orcero con sus libros">
+          </div>
 
-function loadVideo(box) {
-  box.innerHTML =
-    '<iframe src="https://www.youtube-nocookie.com/embed/ivtkXDO9zBY?autoplay=1&rel=0&modestbranding=1" ' +
-    'allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
-}
-</script>
+          <div class="panel author-box">
+            <p><strong>Juan Manuel Ronda Orcero</strong> nació en Cartagena (España). Psicólogo de formación y gestor cultural durante gran parte de su vida profesional, ha estado vinculado a la organización y desarrollo de numerosos proyectos relacionados con la música, el teatro y la programación artística.</p>
+            <p>Su obra literaria se mueve entre la memoria, la reflexión y la ficción, con una mirada personal sobre la identidad, la experiencia humana y el paso del tiempo. En ella conviven la observación psicológica, la evocación de los lugares fundacionales y el interés por las grietas de la percepción.</p>
+            <p>Es autor de <em>El niño sin su patio</em>, un relato íntimo sobre la infancia y los espacios que nos construyen, y de <em>El cristal roto de Elena</em>, una novela que explora los límites entre realidad, percepción y tecnología.</p>
+            <p>Esta web nace como un punto de encuentro entre libros, lectores, materiales audiovisuales, comunicación directa y futuros proyectos.</p>
+            <div class="actions">
+              <a class="btn-buy" href="https://www.amazon.com/author/juanma.ronda" target="_blank" rel="noopener">Amazon Author Central</a>
+              <a class="btn-lite" href="https://www.facebook.com/juanmanuelrondaorcero" target="_blank" rel="noopener">Facebook profesional</a>
+            </div>
+            <div class="stats">
+              <div class="stat"><strong>2</strong><span>Libros destacados</span></div>
+              <div class="stat"><strong>2</strong><span>Vídeos activos</span></div>
+              <div class="stat"><strong>1</strong><span>Canal directo de contacto</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section class="section">
+      <div class="wrap">
+        <span class="kicker">Recorrido del visitante</span>
+        <h2 class="title">Qué puede hacer quien llegue a esta web</h2>
+        <p class="intro">La página está concebida para invitar a explorar, no solo para mostrar datos. El visitante encuentra una ruta clara desde la curiosidad inicial hasta la compra, el seguimiento o el contacto.</p>
+
+        <div class="journey-grid">
+          <article class="panel journey-card">
+            <h3>Conocer la obra</h3>
+            <p>El visitante puede ver de inmediato qué libros existen, qué tono tienen y qué tipo de experiencia de lectura proponen.</p>
+          </article>
+          <article class="panel journey-card">
+            <h3>Profundizar</h3>
+            <p>Las secciones dinámicas, las sinopsis y los vídeos aportan recorrido, contexto y una lectura más rica del conjunto.</p>
+          </article>
+          <article class="panel journey-card">
+            <h3>Conectar</h3>
+            <p>Amazon, Facebook profesional y email permiten seguir la actividad del autor o establecer contacto directo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="wrap">
+        <span class="kicker">Preguntas frecuentes</span>
+        <h2 class="title">Información útil para el visitante</h2>
+        <p class="intro">Una capa más de contenido para que la web resulte menos estática y ofrezca respuestas rápidas sin necesidad de salir de ella.</p>
+
+        <div class="faq-grid">
+          <div class="panel faq-card">
+            <details open>
+              <summary>¿Dónde pueden comprarse los libros?</summary>
+              <p>En los enlaces directos a Amazon incluidos en esta web. También puedes consultar por email para información sobre venta directa.</p>
+            </details>
+            <details>
+              <summary>¿Se pueden seguir novedades del autor?</summary>
+              <p>Sí. La vía más clara en este momento es el Facebook profesional, además de esta propia web y la página de autor en Amazon.</p>
+            </details>
+            <details>
+              <summary>¿La web está preparada para nuevos libros?</summary>
+              <p>Sí. La estructura está pensada para añadir más obras, reseñas, actos, vídeos, entrevistas y nuevos proyectos sin rehacer la base completa.</p>
+            </details>
+          </div>
+
+          <div class="panel faq-card">
+            <details open>
+              <summary>¿Qué tipo de escritura encontrará el lector?</summary>
+              <p>Una escritura que combina memoria, reflexión y ficción, con especial atención a la identidad, las emociones y la experiencia humana.</p>
+            </details>
+            <details>
+              <summary>¿Hay vídeos para conocer mejor los libros?</summary>
+              <p>Sí. La sección audiovisual incluye dos piezas promocionales para acercarse a cada obra de forma rápida y visual.</p>
+            </details>
+            <details>
+              <summary>¿Puede escribirse al autor?</summary>
+              <p>Sí. La web incluye email de contacto para consultas, propuestas o información sobre venta directa.</p>
+            </details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contacto">
+      <div class="wrap">
+        <span class="kicker">Conecta</span>
+        <h2 class="title">Contacto, redes y acceso directo</h2>
+        <p class="intro">Todos los canales clave reunidos en una sola zona, con una presentación pública limpia y funcional.</p>
+
+        <div class="connect-grid">
+          <div class="panel connect-card">
+            <h3>Enlaces principales</h3>
+            <div class="link-list">
+              <div class="link-row">
+                <span>Perfil de autor en Amazon</span>
+                <a href="https://www.amazon.com/author/juanma.ronda" target="_blank" rel="noopener">Abrir</a>
+              </div>
+              <div class="link-row">
+                <span>Facebook profesional</span>
+                <a href="https://www.facebook.com/juanmanuelrondaorcero" target="_blank" rel="noopener">Abrir</a>
+              </div>
+              <div class="link-row">
+                <span>Email para contacto y venta directa</span>
+                <a href="mailto:jvanma@hotmail.com">jvanma@hotmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel connect-card">
+            <h3>Preparada para seguir creciendo</h3>
+            <p>Esta versión ya está concebida como base pública estable. A partir de aquí solo habría que añadir nuevos bloques cuando aparezcan más libros, reseñas, entrevistas, presentaciones o materiales de prensa.</p>
+            <div class="notice">
+              Próximas ampliaciones naturales: nuevas publicaciones, agenda de actos, reseñas destacadas, entrevistas, prensa y otros materiales de autor.
+            </div>
+            <div class="actions" style="margin-top:16px">
+              <a class="btn-buy" href="mailto:jvanma@hotmail.com">Escribir ahora</a>
+              <a class="btn-lite" href="#libros">Volver a libros</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-box">
+        <div>© <span id="year"></span> Juan Manuel Ronda Orcero</div>
+        <div>Web oficial preparada para libros, vídeos, contacto, redes y futuras ampliaciones.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    function loadVideo(box){
+      const id = box.dataset.video;
+      box.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0" title="Vídeo de YouTube" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+    }
+
+    const buttons = document.querySelectorAll('.tab-btn');
+    const panes = document.querySelectorAll('.tab-pane');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        panes.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Juan Manuel Ronda Orcero",
+    "jobTitle":"Autor y psicólogo",
+    "url":"https://jvanma-glitch.github.io/JUANMA-RONDA-PUBLICACIONES",
+    "sameAs":[
+      "https://www.amazon.com/author/juanma.ronda",
+      "https://www.facebook.com/juanmanuelrondaorcero"
+    ]
+  }
+  </script>
 </body>
 </html>
